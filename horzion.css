@@ -1,0 +1,479 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'poppins',sans-serif;
+    background-color: #DDE5EE;
+    font-size: 35px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 40px;
+  }
+  
+  .battery-container {
+    display: flex;
+    padding: 1px;
+    background: #D4D3D0;
+    border: 0px solid #000;
+    /* border-radius: 8px; */
+  }
+  
+  .battery-option.horizon {
+    background-color: #44B0F4; /* Set the background color to green */
+    color: black; /* Optional: Change text color to white for better contrast */
+    border: 10px solid green;
+    font-size: 30px;
+}
+  .battery-option.active {
+    border: 10px solid green; /* Green border for the active battery option */
+  }
+  
+  .battery-option {
+    display: flex;
+    align-items: center;
+    /* gap: 4px; */
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'poppins',sans-serif;
+    margin-left: 20px;
+    font-weight: bold;
+
+    background: #FFC11E; /* Set a background color for the buttons */
+    border: 5px solid #D4D3D0; /* Add a border to define the button edges */
+    border-radius: 5px; /* Add rounded corners for button aesthetics */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+  }
+  
+  .battery-option:hover {
+    transform: translateY(-3px); /* Lift the button on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Emphasize shadow on hover */
+  }
+  
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background with opacity */
+    animation: fadeIn 0.5s; /* Fade-in animation */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Center the modal */
+    padding: 50px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Maximum width */
+    animation: slideIn 0.5s; /* Slide-in animation */
+    text-align: center; /* Center text */
+  }
+  
+  .close-button {
+    color: #FF8A19;
+    float: right ; 
+    font-size: 28px; 
+    font-weight: bold; 
+  }
+  
+  .close-button:hover,
+  .close-button:focus {
+    color: #FF3D00; 
+    text-decoration: none; 
+    cursor: pointer; 
+  }
+  
+  .info-icon {
+    display: inline-block;
+    width: 30px; /* Adjust the size */
+    height: 30px; /* Adjust the size */
+    cursor: pointer;
+    vertical-align: middle; /* Align the image with the text */
+  }
+  
+  .info-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image is not stretched */
+    /* gap: 20px; */
+    margin-left: 10px;
+  }
+  
+  
+  h2 {
+    color: #0c0c0c; /* Attractive header color */
+    font-size: 2.5em; /* Larger font size for emphasis */
+  }
+  
+  h5 {
+    color: #333; /* Subheader color */
+    font-size: 1.8em; /* Slightly larger subheader */
+  }
+  
+  ul {
+    margin-top: 10px; 
+    padding-left: 20px; /* Indentation for list */
+  }
+  
+  li {
+    margin-bottom: 10px; /* Spacing between list items */
+    font-size: 1.2em; /* Increased font size for readability */
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* border: 2px solid #000;
+    background: #FFF; */
+  }
+  
+  .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* background-color: #ffffff; */
+    transition: all 0.3s ease;
+  }
+  
+  /* .circle.active {
+    background-color: #4caf50;
+  } */
+  
+  .header-icons {
+    display: flex;
+    gap: 25px;
+    height: 50px;
+  }
+  
+  .icon {
+    background: none; /* Remove default button styles */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .icon-img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Ensure width and height are equal */
+    border-radius: 50%; /* Makes the icon circular */
+    object-fit: cover; /* Ensures the image fits well inside the circle */
+    border: 0px solid #333333; /* Optional: Add a border around the circle */
+  }
+  
+  .container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .image-section {
+    text-align: center;
+    margin-top: 10px; /* Adjust based on your layout needs */
+  }
+  
+  .your-image-class {
+    max-width: 70%; /* Ensures the image doesn't overflow */
+    height: auto; /* Keeps the aspect ratio */
+  }
+  
+  
+  .instruction {
+    margin-left: 20px; /* Space between the info icon and instruction text */
+    color: #555; /* Adjust color as needed */
+    font-size: 12px; /* Adjust font size as needed */
+    margin-top: 15px; /* Add space above the instruction text */
+    margin-right: 310px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .interactive-area {
+    display: flex;
+    /* margin-top: 5px; */
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .passenger-area {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 550px;
+    height: 400px;
+    background: #7FB5D0;
+  }
+  
+  .passenger-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+    margin-left: 30px;
+    width: 50%;
+  }
+  
+  .grid-cell {
+    height: 98px;
+    width: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    border: 1px dashed #aaa;
+    border-radius: 5px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .grid-cell.highlight {
+    background: #c8e6c9;
+    border-color: #4caf50;
+    color: #000;
+  }
+  
+  .drag-area {
+    display: flex; /* Use flexbox to align items in a row */
+    align-items: center; /* Center items vertically */
+    margin-top: 10px; /* Optional: Add some space above */
+    margin-bottom: 10px;
+  }
+  
+  
+  .passenger {
+    width: 80px; /* Adjust the size */
+    height: 80px; /* Adjust the size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #639EBB;
+    background: #ffffff;
+    margin-left: 50px;
+    border-radius: 15px;
+  }
+
+  .loadHR {
+    width: 80px; /* Adjust the size */
+    height: 80px; /* Adjust the size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #639EBB;
+    background: #ffffff;
+    margin-left: 50px;
+    border-radius: 15px;
+  }
+  
+  
+  .passenger-image {
+    width: 65%; /* Ensure the image fits the container */
+    height: 69%; /* Ensure the image fits the container */
+    object-fit: contain; /* Keeps the image's aspect ratio */
+    /* margin-left: 0px; */
+    margin-top: 20px;
+  }
+
+  .load-image {
+    width: 65%; /* Ensure the image fits the container */
+    height: 69%; /* Ensure the image fits the container */
+    object-fit: contain; /* Keeps the image's aspect ratio */
+    /* margin-left: 0px; */
+    margin-top: 20px;
+  }
+  
+  .passenger:active {
+    cursor: grabbing;
+  }
+  
+  .loadHR:active {
+    cursor: grabbing;
+  }
+  .mileage-area {
+    text-align: center;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Digital+7&family=Poppins:wght@400&display=swap');
+  
+  .mileage-display {
+    position: relative; /* Set position to relative */
+    display: flex;
+    align-items: baseline;
+    justify-content: center; /* Center the content horizontally */
+    width: 550px;
+    height: 400px;
+    overflow: hidden; /* Hide overflow */
+  }
+
+  .overlay-text {
+    position: absolute; /* Position it absolutely within the video box */
+    top: 35%; /* Center it vertically */
+    left: 65%; /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own size */
+    color: white; /* Change text color to white */
+    font-size: 24px; /* Adjust font size as needed */
+    text-align: right; /* Center the text */
+    z-index: 2; /* Ensure it appears above the video */
+    border: 5px solid white;
+    background-color: black;
+    /* width: 73%; */
+  }
+
+  .mileage-display video {
+    position: absolute; /* Position video absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make video cover the entire area */
+    height: 100%; /* Make video cover the entire area */
+    object-fit: cover; /* Cover the area without stretching */
+    z-index: 0; /* Send video to the back */
+  }
+  
+  #mileage-value {
+    font-family: 'Digital Numbers', sans-serif;
+    border: 0px solid white;
+    margin-top: 10px;
+    margin-left: 0px;
+    background: #000;
+    color: #18e8ff;
+    font-size: 140px; /* Adjust size for a larger display */
+    width: 384px;
+    height: 207px;
+  }
+  
+  .driver{
+    display: inline-flex;
+    align-items: normal;
+    /* margin-top: 70px; */
+    /* padding: 5px; */
+  
+  }
+  
+  #km-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px; /* Adjust size for a smaller display */
+    margin-left: 10px; /* Add spacing between numbers and text */
+    height: 100px;
+    margin-top: 0px;
+    color: #C3BEBE; /* Set color as per your requirement */
+    border: 0px solid black;
+  }
+  
+  #driver-cell {
+    height: 117px; /* Match the height of passenger grid cells */
+    width: 117px;  /* Match the width of passenger grid cells */
+    margin-top: 100px;
+    /* display: inline-block; */
+  }
+  
+  .load {
+    margin-top: 40px;
+    font-weight: bold;
+    width: 200px;
+    /* margin-left: 0px; */
+    margin-right: 50px;
+  }
+  
+  .footer {
+    background-color: #D4D3D0; /* Change this to your desired color */
+    color: #333; /* Text color */
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 15px;
+    top: 10px;
+    width: 100%;
+    /* margin-top: 10px; */
+    font-size: 15px;
+  }
+  
+  .mileage-text {
+    font-size: 40px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #090101; /* Change the text color */
+    margin-top: 20px; /* Add some space above the text */
+    margin-bottom: 15px; /* Add space below the mileage text */
+    text-align: center; /* Center the text */
+    border: 6px solid black; /* Add a border around the text */
+    border-radius: 90px;
+    width: 400px;
+    background: #FFC11E;
+  }
+
+  #overlay {
+    position: fixed; /* Stay on top of everything */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: none; /* Hidden by default */
+    justify-content: center; /* Center the content */
+    align-items: center; /* Center the content */
+    z-index: 1000; /* Make sure it’s on top */
+  }
+  
+  /* Styling for the image and text inside the overlay */
+  #overlay-content {
+    position: relative; /* Set position to relative to position children absolutely */
+    text-align: center;
+    color: white; /* White text color */
+}
+  
+  #overlay-content img {
+    width: 600px;
+    height: 400px;
+    max-width: 80%; /* Make it responsive */
+    border: 0px solid white;
+    border-radius: 10px;
+  }
+  
+  #close-btn {
+    position: absolute; /* Position it absolutely within the overlay content */
+    top: 320px; /* Adjust as needed */
+    right: 230px; /* Adjust as needed */
+    font-size: 25px;
+    padding: 10px 50px;
+    background-color: #44B0F4;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10; /* Ensure it appears above the image */
+}
+  
+#close-btn:hover {
+  background-color: darkred;
+}

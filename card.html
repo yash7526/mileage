@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Battery Selection with Hover</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('images/cardbg.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Heading */
+        h1 {
+            margin-top: 0px;
+            font-size: 4em;
+        }
+
+        /* Battery Cards Container */
+        .battery-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        /* Individual Battery Card */
+        .battery-card {
+            width: 470px;
+            height: 471px;
+            background-color: white;
+            border: 5px solid white;
+            border-radius: 10px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.1s ease, border-color 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 180px;
+        }
+
+        /* Hover Effect */
+        .battery-card:hover, .battery-card.clicked {
+            transform: translateY(-10px);
+            border-color: black;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Battery Header */
+        .battery-header {
+            color: white;
+            font-size: 70px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 380px;
+            width: 440px;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+
+        .simba {
+            background-color: #FFBF1C; /* Yellow for SIMBA */
+        }
+
+        .horizon {
+            background-color: #44B8F6; /* Blue for HORIZON */
+        }
+
+        /* Battery Footer */
+        .battery-footer {
+            display: flex;
+            justify-content: space-around;
+            /* margin-top: 10px; */
+            font-size: 55px;
+            font-weight: Medium;
+        }
+
+        .separator {
+            color: #FFBF1C; /* Yellow separator */
+        }
+
+        .separatorhorizon {
+            color: #44B8F6;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            /* padding: 0px 0; */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Heading -->
+    <h1>Choose your battery</h1>
+    <!-- Battery Cards Container -->
+    <div class="battery-container">
+        <!-- SIMBA Card -->
+        <div class="battery-card" onclick="handleClick(this, 'simba.html')">
+            <div class="battery-header simba">SIMBA</div>
+            <div class="battery-footer">
+                <div>51.2 V</div>
+                <div class="separator">|</div>
+                <div>105 Ah</div>
+            </div>
+        </div>
+
+        <!-- HORIZON Card -->
+        <div class="battery-card" onclick="handleClick(this, 'horizon.html')">
+            <div class="battery-header horizon">HORIZON</div>
+            <div class="battery-footer">
+                <div>51.2 V</div>
+                <div class="separatorhorizon">|</div>
+                <div>210 Ah</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2024 - All Rights Reserved.  Designed and Developed by Inverted Energy Pvt. Ltd.</p>
+    </div>
+
+    <script>
+        // Function to handle click, apply hover effect, and delay redirection
+        function handleClick(card, page) {
+            // Add the 'clicked' class for the hover effect
+            card.classList.add('clicked');
+
+            // Disable further clicks
+            card.style.pointerEvents = "none";
+
+            // Redirect after 5 seconds
+            setTimeout(() => {
+                window.location.href = page;
+            }, 700);
+        }
+    </script>
+</body>
+</html>

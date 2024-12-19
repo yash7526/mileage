@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Mileage Display</title>
+    <style>
+        /* Container for mileage value */
+        #mileage-value {
+            font-family: 'Digital Numbers', sans-serif;
+            border: 5px solid white;
+            margin-top: 15px;
+            margin-left: 0px;
+            background: #000;
+            color: #18e8ff;
+            font-size: 140px;
+            display: flex;
+            overflow: hidden; /* Hide overflow for scrolling effect */
+            height: 160px; /* Match height to font size */
+            width: 450px;
+            justify-content: space-between;
+        }
+
+        /* Individual digit container */
+        .mileage-digit {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Digit scrolling container */
+        .mileage-digit-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.6s ease-in-out; /* Smooth scroll transition */
+        }
+
+        .mileage-digit-container div {
+            height: 160px; /* Match font size height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Load value display */
+        #load-value {
+            margin-top: 20px;
+            font-size: 60px;
+            color: #333;
+        }
+
+        button {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scrolling Mileage Display</h1>
+
+    <!-- Mileage Display -->
+    <div id="mileage-value">
+        <div class="mileage-digit" data-value="0">
+            <div class="mileage-digit-container"></div>
+        </div>
+        <div class="mileage-digit" data-value="0">
+            <div class="mileage-digit-container"></div>
+        </div>
+        <div class="mileage-digit" data-value="0">
+            <div class="mileage-digit-container"></div>
+        </div>
+    </div>
+
+    <!-- Load Value Display -->
+    <div id="load-value">Load: 0</div>
+
+    <!-- Buttons to Test -->
+    <button onclick="simulateMileage()">Simulate Mileage Update</button>
+
+    <script>
+        let totalLoad = 0;
+        const baseMileage = 150; // Base mileage value
+        const loadValue = document.getElementById('load-value');
+
+        function createDigitElements() {
+            const digits = [];
+            for (let i = 0; i < 10; i++) {
+                digits.push(`<div>${i}</div>`); // Create divs for each digit
+            }
+            return digits.join('');
+        }
+
+        function updateMileageDisplay(value) {
+            const mileageDigits = document.querySelectorAll('.mileage-digit');
+
+            // Pad value to 3 digits (e.g., '009')
+            const valueString = String(value).padStart(3, '0');
+
+            mileageDigits.forEach((digitElement, index) => {
+                const digitContainer = digitElement.querySelector('.mileage-digit-container');
+                const newValue = valueString[index];
+
+                // Populate container with digits if not already populated
+                if (!digitContainer.hasChildNodes()) {
+                    digitContainer.innerHTML = createDigitElements();
+                }
+
+                // Animate to the correct value by changing transform
+                const position = parseInt(newValue) * -160; // 160px height for each digit
+                digitContainer.style.transform = `translateY(${position}px)`;
+            });
+        }
+
+        function simulateMileage() {
+            // Simulate passenger load and update
+            totalLoad = Math.floor(Math.random() * 50); // Random load value between 0 and 50
+            const adjustedMileage = Math.max(baseMileage - totalLoad / 10, 95); // Adjust mileage
+            updateMileageDisplay(Math.floor(adjustedMileage));
+            loadValue.textContent = `Load: ${totalLoad}`; // Update load display
+        }
+
+        // Initialize display to 000
+        updateMileageDisplay(0);
+    </script>
+</body>
+</html>

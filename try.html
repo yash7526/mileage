@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sad simba</title>
+    <style>
+        /* Basic Reset */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        /* Popup Background */
+        .popup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            /* border: 2px solid black; */
+            z-index: 1000;
+        }
+
+        /* Pop-up Box */
+        .popup {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            border: 5px solid black;
+            text-align: center;
+            width: 525px;
+            height: 306px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        /* Circular Image */
+        .popup img {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 242px;
+            height: 242px;
+            border-radius: 50%;
+            background-color: #ffcc2a;
+            border: 2px solid black;
+        }
+
+        /* Pop-up Heading and Text */
+        .popup h2 {
+            margin-top: 150px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .popup p {
+            color: #555;
+            margin: 10px 0 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Button Styling */
+        .popup button {
+            background-color: #ffcc2a;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .popup button:hover {
+            background-color: #e6b922;
+        }
+
+        #roarButton{
+            font-size: 30px;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 34px;
+            height: 34px;
+            background-color: #333;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pop-up Container -->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup">
+            <!-- Close Button -->
+            <div class="close-btn" id="closeBtn">X</div>
+            
+            <!-- Circular Image -->
+            <img src="images/sad.png" alt="Lion Image">
+
+            <!-- Content -->
+            <h2>I can handle this, but a balanced <br> load let’s me roar louder!</h2>
+            <!-- Button -->
+            <button id="roarButton"> Oh no! </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Close Button Functionality
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('popupContainer').style.display = 'none';
+        });
+
+        // Button Click Event
+        document.getElementById('roarButton').addEventListener('click', function() {
+            alert("Let's Roar!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap" rel="stylesheet">  
+  <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet">
+  <title>Horizon Mileage Checker</title>
+  <link rel="stylesheet" href="horzion.css">
+</head>
+<body>
+  <header class="header">
+    <div class="battery-container">
+        <div class="battery-option" data-battery="Simba 105 Ah" data-mileage="131" onclick="redirectToHorizon()">
+            <span class="circle active"></span> SIMBA 105 Ah &nbsp;&nbsp;</div>
+        <div class="battery-option horizon" data-battery="Horizon 210 Ah" data-mileage="256">
+            <span class="circle"></span> Horizon 210 Ah &nbsp;&nbsp;</div>
+    </div>
+    <div id="overlay">
+      <div id="overlay-content">
+          <img src="images/overload.png" alt="Passenger Area Full">
+          <button id="close-btn">Oops!</button>
+      </div>
+  </div>
+    <div class="header-icons">
+          <button class="icon tooltip" title="Reset">
+            <img src="images/restart.png" alt="Reset" class="icon-img"></button>  
+          <button class="icon tooltip" title="Home">
+            <img src="images/Home.png" alt="Home" class="icon-img"></button>  
+          <button class="icon tooltip" title="Help">
+            <img src="images/help.png" alt="Help" class="icon-img"></button>      
+    </div>
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>🎮 Game Help</h3>
+            <p>Welcome to the Mileage Game! 🚗💨</p>
+            <h5>How to Play:</h5>
+            <ul>
+                <li>Drag passengers into the vehicle area.</li>
+                <li>Watch the mileage change based on the total weight.</li>
+                <li>Use the Reset button to start over.</li>
+            </ul>
+            <p>Have fun and enjoy the game! 🎉</p>
+        </div>
+    </div>
+  </header>
+
+  <!-- Added image section -->
+  <div class="image-section">
+    <img src="images/Track_Mileage_Horizon_Title.png" alt="Your Image Description" class="your-image-class">
+  </div>
+
+  <main class="container">
+      <div class="drag-area">
+        <div class="passenger" draggable="true" data-weight="70">
+            <img src="images/Vector1.png" alt="Passenger" class="passenger-image">
+        </div>
+        <div class="loadHR" draggable="true" data-weight="60">
+            <img src="images/load.png" alt="loadHR" class="load-image">
+        </div>
+        <span class="info-icon" title="This is an information icon">
+            <img src="images/info.png" alt="Information Icon" />
+        </span>
+        <p class="instruction">1 Unit = 70 Kg <br><br> First, place the driver, and then add <br> the cargo below to increase the load.</p>
+        <!-- <div class="mileage-text">CHECK YOUR <br> MILEAGE</div> -->
+    </div>
+    <section class="interactive-area">
+      <div class="passenger-area">
+        <div class="driver">
+            <div class="grid-cell" data-slot="1" draggable="true" id="driver-cell"> Driver </div>
+            <div class="passenger-grid">
+                <div class="grid-cell" data-slot="2"> + </div>
+                <div class="grid-cell" data-slot="3"> + </div>
+                <div class="grid-cell" data-slot="4"> + </div>
+                <div class="grid-cell" data-slot="5"> + </div>
+                <div class="grid-cell" data-slot="6"> + </div>
+                <div class="grid-cell" data-slot="7"> + </div>
+            </div>
+        </div>      
+        <div class="load"> <span id="load-value">60</span> KG</div>
+    </div>     
+    <div class="mileage-area">
+      <div class="mileage-display">
+        <video autoplay loop muted>
+          <source src="images/horizon.mp4" type="video/mp4">
+        </video>
+        <div class="overlay-text">
+            <div class="mileage-value">
+                <span id="mileage-value">000</span>
+                <span id="km-text">KM</span>
+              </div>
+        </div>
+      </div>         
+    </div>
+    </section>
+  </main>
+  <script>
+    function redirectToHorizon() {
+        window.location.href = 'simba.html';
+    }
+    </script>
+  <script src="horizon.js" defer></script>
+</body>
+<footer class="footer">
+  <p>© 2024 - All Rights Reserved.  Designed and Developed by Inverted Energy Pvt. Ltd.</p>
+</footer>
+</html>

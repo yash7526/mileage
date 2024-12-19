@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Mileage Quest Login</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('images/homebg.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Styles */
+        .container {
+            text-align: center;
+            /* background-color: #FFF5EB; */
+            border-radius: 16px;
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .container h1 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Input Styles */
+        .input-container {
+            background-color: #ffc11e;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 523px;
+            height: 257px;
+            margin-left: -80px;
+            border: 4px solid #333;
+        }
+
+        .input-container label {
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            width: 411px;
+            height: 57px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            margin-left: 30px;
+            /* text-align: center; */
+        }
+
+        .input-container input {
+            width: 80%;
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 24px;
+        }
+
+        /* Button Styles */
+        .start-button {
+            background-color: #49b514;
+            color: white;
+            /* padding: 12px 24px; */
+            font-size: 38px;
+            font-family: 'poppins';
+            border: 4px solid black;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 237px;
+            height: 73px;
+        }
+
+        .start-button:hover {
+            background-color: #45A049;
+            transform: scale(1.05);
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffc11e;
+            color: black;
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .footer img {
+            max-width: 100px;
+        }
+    </style>
+    <script>
+        function redirectToIndex() {
+            window.location.href = 'card.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <label for="player-name">Enter your name</label>
+            <input type="text" id="player-name" placeholder="                    Player 1">
+        </div>
+        <button class="start-button" onclick="redirectToIndex()">START</button>
+    </div>
+    <div class="footer">
+        <p>© 2024 - All Rights Reserved.  Designed and Developed by Inverted Energy Pvt. Ltd.</p>
+    </div>
+</body>
+</html>
